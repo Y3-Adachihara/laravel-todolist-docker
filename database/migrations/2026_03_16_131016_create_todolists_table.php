@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->String('content');
-            $table->date('daadline');
+            $table->date('deadline');
             $table->boolean('status')->default(0);  // 完了なら1,未完なら0
             $table->timestamps();
         });
