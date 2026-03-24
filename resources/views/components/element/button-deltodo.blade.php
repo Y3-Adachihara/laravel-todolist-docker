@@ -1,6 +1,6 @@
-<form action="{{ route('deletetodo', ['todoID' => $todoId] }}" method="POST" onlick="return confirm('削除してもよろしいですか？');">
+<form action="{{ route('deletetodo', ['todoId' => $todoId]) }}" method="POST" onclick="return confirm('削除してもよろしいですか？');">
     @method('DELETE')
-    @cstf
+    @csrf
     <button type="submit" class="
         inline-flex justify-center
         ml-4
