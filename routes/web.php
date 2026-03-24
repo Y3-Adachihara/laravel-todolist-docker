@@ -7,5 +7,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-ROute::get('todolist', TodolistController::class)
+Route::get('todolist', TodolistController::class)
     ->name('todolist');
+
+Route::put('/dumy-check/{todoId}', function ($todoId) {
+    return 'todoCheckダミーです';
+})->name('checktodo');
+
+Route::delete('/dumy-delete/{todoId}', function ($todoId) {
+    return 'deletetodoダミーです';
+})->name('deletetodo');
