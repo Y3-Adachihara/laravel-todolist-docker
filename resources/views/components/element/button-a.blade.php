@@ -2,7 +2,15 @@
     'href' => '',
     'theme' => '',
 ])
+
+{{--
+    ＠php以外のコメントはこの記号を使う。必ず＠propsを先頭に来させる。
+    親ビュー（todolist.blade.php）からデータを受け取るための受け取り窓口が＠props
+    生PHPの時のように＠phpの中で初期化の宣言をしてしまうと、親ビューからhrefなどの値が受け取れなくなってしまい、全てこのbutton-a.blade.phpの中で宣言した色や遷移先のボタンしか作れなくなってしまう
+--}}
+
 @php
+    // phpでは、同じ名前空間内で同じ名前の関数を定義することはできない。button-aが呼び出されているのは同じforeach文の中(=同じ名前空間)となるため、if文でチェックして最初のループ以外突っぱねる必要がある。
     if (!function_exists('getThemeClassForButtonA')) {
         function getThemeClassForButtonA($theme) {
             return match ($theme) {
