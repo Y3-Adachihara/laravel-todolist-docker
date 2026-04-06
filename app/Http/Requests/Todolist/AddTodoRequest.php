@@ -25,7 +25,8 @@ class AddTodoRequest extends FormRequest
      * @return array<string, ValidationRule|array<mixed>|string>
      */
 
-    // フォームから送信されたデータが空だったりすると、ここで引っ掛かって
+    // フォームから送信されたデータが空だったりすると、ここで引っ掛かって直前の画面（今回はTodo追加画面）に強制送還。
+    // コントローラの処理は一切実行されない。
     // ※インスタンス生成後、自動実行
     public function rules(): array
     {
@@ -34,15 +35,20 @@ class AddTodoRequest extends FormRequest
             'deadline' => 'required|date',
         ];
     }
+
+    // $this、すなわちAddTodoRequest=自分自身 のインスタンスは、ユーザが送信したフォームの内容=リクエスト情報が入っている。
     public function userId(): int {
+        // $this->user()で、今ログインしているユーザの情報を取得する。-.idで、ユーザIDを取得する。
         return $this->user()->id;
     }
 
-    public function content(): string {
+    public function content(): string { 
+        // フォームのname属性がcontentのinputタグで受け取ったデータを返す
         return $this->input('content');
     }
 
     public function deadline(): string {
+        // フォームのname属性がdeadlineのinputタグで受け取ったデータを返す
         return $this->input('deadline');
     }
 }
