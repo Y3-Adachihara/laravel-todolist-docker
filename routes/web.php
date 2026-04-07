@@ -12,9 +12,11 @@ Route::get('/', function () {
 Route::get('todolist', TodolistController::class)
     ->name('todolist');
 
+    // 最初にTodo追加画面を表示させるのはこっち↓のコントローラ
 Route::get('addtodo-page', AddTodoPageController::class)
     ->name('addtodo-page');
 
+    // Todo追加処理で走るのはこっち↓のコントローラ
 Route::post('todo/addtodo', AddTodoController::class)
     ->name('addtodo');
 
