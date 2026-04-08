@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Todolist\TodolistController;
 use App\Http\Controllers\Todolist\AddTodo\AddTodoPageController;
 use App\Http\Controllers\Todolist\AddTodo\AddTodoController;
+use App\Http\Controllers\Todolist\EditTodo\EditTodoPageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,9 @@ Route::get('addtodo-page', AddTodoPageController::class)
     // Todo追加処理で走るのはこっち↓のコントローラ
 Route::post('todo/addtodo', AddTodoController::class)
     ->name('addtodo');
+
+Route::get('edittodo-page/{todoId}', EditTodoPageController::class)
+    ->name('edittodo-page');
 
 Route::put('/dumy-check/{todoId}', function ($todoId) {
     return 'todoCheckダミーです';
