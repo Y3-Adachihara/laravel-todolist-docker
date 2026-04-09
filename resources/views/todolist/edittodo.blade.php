@@ -1,6 +1,6 @@
 <x-layout.layout title="Todo編集 | Todoアプリ">
     <x-layout.todolist-single>
-        <form method="POST" action="{{ route('todolist')}}" class="justfy-center">
+        <form method="POST" action="{{ route('edittodo')}}" class="justfy-center">
             @method('PUT')
             @csrf
             <div class="flex flex-col justify-center">
