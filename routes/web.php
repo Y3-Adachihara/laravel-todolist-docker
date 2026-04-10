@@ -29,7 +29,7 @@ Route::get('edittodo-page/{todoId}', EditTodoPageController::class)
     ->name('edittodo-page');
 
     // Todo編集処理で走るのはこっち↓のコントローラ
-Route::post('todo/edittodo/{todoId}',  EditTodoController::class)
+Route::put('todo/edittodo/{todoId}',  EditTodoController::class)
     ->name('edittodo')->where('todoId', '[0-9]+');
 
 
