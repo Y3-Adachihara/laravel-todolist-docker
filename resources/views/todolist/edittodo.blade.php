@@ -9,6 +9,10 @@
 
                 <div class="flex justify-center items-center">
                     <div class="text-xl w-20">Todo</div>
+
+                    // このビューを表示するコントローラーの最後の処理で、return view('todolist.edittodo')->with('todo', $todo);となっていた。
+                    // $todoが、最後の処理でパラメータとして渡された変数。編集対象のTodoリスト一つが入っている。
+                    // 受け取り窓口の@propsがないが、Laravelで渡してくれる仕組みになってる…らしい。
                     <input type="text" name="content" value="{{ $todo->content }}" class="@error('content') is-invalid @enderror w-full ml-4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-green-500 dark:focus:border-green-600 focus:ring-green-500 dark:focus:ring-green-600 rounded-md shadow-sm">
                 </div>
                 @error('content')
@@ -17,6 +21,7 @@
 
                 <div class="flex justify-center items-center mt-4">
                     <div class="flex text-xl w-20">期限</div>
+                    // ここの$todoも上のと同じ
                     <input type="date" name="deadline" value="{{ $todo->deadline }}" class="@error('deadline') is-invalid @enderror flex w-full ml-4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-green-500 dark:focus:border-green-600 focus:ring-green-500 dark:focus:ring-green-600 rounded-md shadow-sm">        
                 </div>
                 @error('deadline')

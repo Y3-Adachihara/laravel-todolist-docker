@@ -11,6 +11,9 @@ class EditTodoPageController extends Controller
     /**
      * Handle the incoming request.
      */
+
+    // ここの$requestは、Laravelが毎回勝手に用意してくれるリクエストファイル。
+    // デフォルトではRequestクラスとなっているが、リクエストを自作した場合は、ここを自分で用意したリクエストファイルのクラス名に変える。
     public function __invoke(Request $request)
     {
         // ここでのroute()は、formタグのaction属性で書いたroute()とは別の動きをする。
@@ -21,6 +24,7 @@ class EditTodoPageController extends Controller
             ②それを基にルーティングが行なわれる。今回は、{todoId}というパラメータをくっつける
             ③$request->route('todoId')の部分で、URLにくっついているパラメータを参照し、保持させる。
         */
+
         $todoId = (int) $request->route('todoId');
         $todo = Todolist::where('id', $todoId)->firstOrFail();
         return view('todolist.edittodo')->with('todo', $todo);
