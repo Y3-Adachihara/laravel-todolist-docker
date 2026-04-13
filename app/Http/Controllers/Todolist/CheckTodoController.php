@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Todolist;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use APP\Models\Todolist;
+use App\Models\Todolist;
 
 class CheckTodoController extends Controller
 {
