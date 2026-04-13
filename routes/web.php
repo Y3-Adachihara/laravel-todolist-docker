@@ -6,6 +6,7 @@ use App\Http\Controllers\Todolist\AddTodo\AddTodoPageController;
 use App\Http\Controllers\Todolist\AddTodo\AddTodoController;
 use App\Http\Controllers\Todolist\EditTodo\EditTodoPageController;
 use App\Http\Controllers\Todolist\EditTodo\EditTodoController;
+use App\Http\Controllers\Todolist\DeleteTodo\DeleteTodoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,13 +43,11 @@ Route::put('todo/edittodo/{todoId}',  EditTodoController::class)
         ③防がれた場合、404エラーとして処理できる。サーバ側の問題（500など）として処理されることを防ぐ。
     */
 
+Route::delete('todo/delete/{todoId}', DeleteTodoController::class)
+    ->name('deletetodo')->where('todoId', '[0-9]+');
 
 
 
 Route::put('/dumy-check/{todoId}', function ($todoId) {
     return 'todoCheckダミーです';
 })->name('checktodo');
-
-Route::delete('/dumy-delete/{todoId}', function ($todoId) {
-    return 'deletetodoダミーです';
-})->name('deletetodo');
