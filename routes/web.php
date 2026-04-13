@@ -7,6 +7,7 @@ use App\Http\Controllers\Todolist\AddTodo\AddTodoController;
 use App\Http\Controllers\Todolist\EditTodo\EditTodoPageController;
 use App\Http\Controllers\Todolist\EditTodo\EditTodoController;
 use App\Http\Controllers\Todolist\DeleteTodo\DeleteTodoController;
+use App\Http\Controllers\Todolist\CheckTodoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,8 +47,5 @@ Route::put('todo/edittodo/{todoId}',  EditTodoController::class)
 Route::delete('todo/delete/{todoId}', DeleteTodoController::class)
     ->name('deletetodo')->where('todoId', '[0-9]+');
 
-
-
-Route::put('/dumy-check/{todoId}', function ($todoId) {
-    return 'todoCheckダミーです';
-})->name('checktodo');
+Route::put('todo/checktodo/{todoId}', CheckTodoController::class)
+    ->name('checktodo')->where('todoId', '[0-9]+');
