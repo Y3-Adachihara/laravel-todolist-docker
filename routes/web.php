@@ -9,6 +9,7 @@ use App\Http\Controllers\Todolist\EditTodo\EditTodoController;
 use App\Http\Controllers\Todolist\DeleteTodo\DeleteTodoController;
 use App\Http\Controllers\Todolist\CheckTodoController;
 use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoPageController;
+use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,5 +52,5 @@ Route::delete('todo/delete/{todoId}', DeleteTodoController::class)
 Route::put('todo/checktodo/{todoId}', CheckTodoController::class)
     ->name('checktodo')->where('todoId', '[0-9]+');
 
-Route::get('resttodo-page',RestoreTodoPageController::class)
-    ->name('resttodo-page');
+Route::get('restoretodo-page',RestoreTodoPageController::class)
+    ->name('restoretodo-page');
