@@ -54,3 +54,6 @@ Route::put('todo/checktodo/{todoId}', CheckTodoController::class)
 
 Route::get('restoretodo-page',RestoreTodoPageController::class)
     ->name('restoretodo-page');
+
+Route::put('todo/restoretodo/{todoId}', RestoreTodoController::class)
+    ->name('restoretodo')->where('todoId', '[0-9]+');
