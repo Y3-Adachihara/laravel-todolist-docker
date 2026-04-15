@@ -23,7 +23,7 @@ class RestoreTodoPageController extends Controller
             とできる。
         */
 
-        return view('todo.restoretodo')->with(['todolists' => $todolists]);
+        return view('todolist.restoretodo')->with(['todolists' => $todolists]);
         /*
             with('todolists', $todolists)でもいいが、これも上のやつと同じ。
             複数のパラメータを加えたい場合、今回の表記法の方が楽
