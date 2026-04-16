@@ -9,14 +9,14 @@
                 {{-- @csrf（ワンタイムトークンなんだって）は、formタグの中ならどこに書いてもいい。ただ、一番上に書くのがスタンダード --}}
                 <div class="flex justify-center items-center">
                     <div class="text-xl w-20">Todo</div>
-                    <input type="text" name="content" placeholder="Todoを入力" class="@error('content') is-invalid @enderror w-96 ml-4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-green-500 dark:focus:border-green-600 focus:ring-green-500 dark:focus:ring-green-600 rounded-md shadow-sm">
+                    <input type="text" name="content" placeholder="Todoを入力" class="@error('content') is-invalid @enderror w-96 ml-4 border-gray-300 focus:border-green-500 focus:ring-green-500 rounded-md shadow-sm">
                 </div>
                 @error('content')
                     <div style="color: red" class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 <div class="flex justify-center items-center mt-4">
                     <div class="flex text-xl w-20">期限</div>
-                    <input type="date" name="deadline" placeholder="YYYY-MM-DD" class="@error('deadline') is-invalid @enderror flex w-96 ml-4 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-green-500 dark:focus:border-green-600 focus:ring-green-500 dark:focus:ring-green-600 rounded-md shadow-sm">
+                    <input type="date" name="deadline" placeholder="YYYY-MM-DD" class="@error('deadline') is-invalid @enderror flex w-96 ml-4 border-gray-300 focus:border-green-500 focus:ring-green-500 rounded-md shadow-sm">
                 </div>
                 @error('deadline')
                     <div style="color: red" class="alert alert-danger">{{ $message }}</div>
