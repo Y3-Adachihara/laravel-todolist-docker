@@ -13,8 +13,12 @@ class TodolistController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $todolists = Todolist::where([['status', '=', 0]])->get();
+        $user_id = Auth::id();
+        $user_name = Auth::user()=>name;
+        $todolists = Todolist::where([['user_id', '=', $user_id], ['status', '=', 0]])->get();
         return view('todolist.todolist')->with([
-            'todolists' => $todolists]);
+            'user_name' => $user_name,
+            'todolists' => $todolists
+        ]);
     }
 }
