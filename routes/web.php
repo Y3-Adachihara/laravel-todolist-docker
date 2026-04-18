@@ -55,3 +55,5 @@ Route::middleware('auth')->group(function (){
     Route::put('todo/restoretodo/{todoId}', RestoreTodoController::class)
         ->name('restoretodo')->where('todoId', '[0-9]+');
 });
+
+require __DIR__.'/auth.php';
