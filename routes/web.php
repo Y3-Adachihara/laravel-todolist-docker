@@ -13,6 +13,9 @@ use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoController;
 
 // このミドルウェアでグループ化したルーティングは、アクセス時にログインを求めるようになる。
 Route::middleware('auth')->group(function (){
+    
+    Route::redirect('/', 'todolist');
+
     Route::get('todolist', TodolistController::class)
         ->name('todolist');
 
