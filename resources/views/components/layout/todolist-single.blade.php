@@ -1,4 +1,4 @@
- <div class="flex flex-col h-screen">
+<div class="flex flex-col h-screen">
     <header class="flex fixed top-0 bg-green-500 w-full items-center">
         <h1>
             <a href="{{ route('todolist') }}" class="flex items-center">
@@ -10,6 +10,18 @@
                   <p class="text-2xl">Todoアプリ</p>
             </a>       
         </h1>
+        <nav class="flex-auto">
+            <ul class="flex mr-3 text-xl uppercase list-none justify-end">
+                <li class="ml-3 hover:text-gray-600">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button onclick="event.preventDefault(); this.closest('form').submit();">
+                        ログアウト
+                    </button>
+                </form>
+                </li>
+            </ul>
+        </nav>
     </header>
     <div class="flex w-full justify-center items-center flex-grow py-10">
         <div class="max-w-screen-lg w-auto">
