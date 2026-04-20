@@ -10,6 +10,7 @@ use App\Http\Controllers\Todolist\DeleteTodo\DeleteTodoController;
 use App\Http\Controllers\Todolist\CheckTodoController;
 use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoPageController;
 use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoController;
+use App\Http\Controllers\Todolist\User\UserInfoController;
 
 // このミドルウェアでグループ化したルーティングは、アクセス時にログインを求めるようになる。
 Route::middleware('auth')->group(function (){
@@ -57,6 +58,9 @@ Route::middleware('auth')->group(function (){
 
     Route::put('todo/restoretodo/{todoId}', RestoreTodoController::class)
         ->name('restoretodo')->where('todoId', '[0-9]+');
+
+    Route::get('userinfo-page', UserInfoController::class)
+        ->name('userinfo-page');
 });
 
 require __DIR__.'/auth.php';
