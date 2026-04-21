@@ -11,6 +11,7 @@ use App\Http\Controllers\Todolist\CheckTodoController;
 use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoPageController;
 use App\Http\Controllers\Todolist\RestoreTodo\RestoreTodoController;
 use App\Http\Controllers\Todolist\User\UserInfoController;
+use App\Http\Controllers\Todolist\User\WithdrawalController;
 
 // このミドルウェアでグループ化したルーティングは、アクセス時にログインを求めるようになる。
 Route::middleware('auth')->group(function (){
@@ -61,6 +62,9 @@ Route::middleware('auth')->group(function (){
 
     Route::get('userinfo-page', UserInfoController::class)
         ->name('userinfo-page');
+
+    Route::delete('user/delete', WithdrawalController::class)
+        ->name('withdrawal');
 });
 
 require __DIR__.'/auth.php';
