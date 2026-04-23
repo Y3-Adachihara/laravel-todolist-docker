@@ -17,6 +17,6 @@ class UserInfoController extends Controller
         // ファザードを使い、メソッド名を後ろに指定することで、様々な認証に関する機能を呼び出せる。
         // user()なら、今ログインしているユーザの情報（Userインスタンス）を丸ごとスポっと取ってくる
         $user = Auth::user();
-        return view('todo.userinfo')->with(['name' => $user->name, 'email' => $user->email]);
+        return view('todolist.userinfo')->with(['name' => $user->name, 'email' => $user->email]);
     }
 }
