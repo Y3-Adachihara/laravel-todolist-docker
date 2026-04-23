@@ -49,7 +49,7 @@
 
             <li class="flex flex-wrap sticky bottom-6 lg:col-span-1 justify-center items-center text-xl bg-gray-100 border-t-4 border-gray-500">
                 <div class="flex flex-wrap w-1/2 p-2 justify-evenly">
-                    <x-element.button-a :href="route('todolist')" theme="add">Todo登録</x-element.button-a>
+                    <x-element.button-a :href="route('addtodo-page')" theme="add">Todo登録</x-element.button-a>
                     <x-element.button-a :href="route('restoretodo-page')" theme="undo">Todo復元</x-element.button-a>
                 </div>
             </li>
