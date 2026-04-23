@@ -11,7 +11,12 @@
             </a>       
         </h1>
         <nav class="flex-auto">
-            <ul class="flex mr-3 text-xl uppercase list-none justify-end">
+            <ul class="flex mr-3 text-xl uppercase list-none justify-end gap-x-5">
+                <li class="hover:text-gray-600">
+                    <a href="{{ route('userinfo-page') }}">
+                        アカウント情報参照
+                    </a>
+                </li>
                 <li class="ml-3 hover:text-gray-600">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
