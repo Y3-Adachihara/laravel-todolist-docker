@@ -29,7 +29,7 @@ WORKDIR /var/www/html
 
 # 8. 本番環境用にComposerでライブラリをインストール
 # ※ .envがない状態でも動くように --ignore-platform-reqs などを使うことも検討
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
 # 9. ストレージとキャッシュフォルダの権限設定（これが重要）
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
