@@ -31,6 +31,12 @@ WORKDIR /var/www/html
 # ※ .envがない状態でも動くように --ignore-platform-reqs などを使うことも検討
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
+
+RUN npm install
+RUN npm run build
+
 # 9. ストレージとキャッシュフォルダの権限設定（これが重要）
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
